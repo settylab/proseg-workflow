@@ -1,5 +1,6 @@
 /* See nextflow.config for param declarations */
 
+params.platform = params.platform.toLowerCase()
 if (!(params.platform in ['xenium', 'cosmx', 'merfish'])) {
     error "${params.platform} is an invalid platform type. Please specify xenium, cosmx, or merfish"
 }
