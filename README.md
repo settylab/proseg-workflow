@@ -20,7 +20,7 @@ A [docker container](https://hub.docker.com/repository/docker/tbencomo/proseg/ge
 
 To run the pipeline with docker:
 ```
-nextflow run main -with-docker [docker env name]
+nextflow run main.nf -with-docker [docker env name]
 ```
 
 ## Execution
