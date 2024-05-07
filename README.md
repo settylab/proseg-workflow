@@ -12,3 +12,14 @@ Key parameters include:
 * `enforce_connectivity` - prevent cells from having disconnected voxels
 
 
+## Install
+Make sure [Nextflow](https://github.com/nextflow-io/nextflow) and [Proseg](https://github.com/dcjones/proseg) are installed.
+
+### Docker
+A [docker container](https://hub.docker.com/repository/docker/tbencomo/proseg/general) with Proseg is provided easy deployment
+
+To run the pipeline with docker:
+```
+nextflow run main -with-docker [docker env name]
+```
+
