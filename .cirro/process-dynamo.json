@@ -1,0 +1,19 @@
+{
+    "childProcessIds": [],
+    "code": {
+        "repository": "GITHUBPUBLIC",
+        "script": "main.nf",
+        "uri": "settylab/proseg-workflow",
+        "version": "main"
+    },
+    "desc": "Segment cells using Proseg",
+    "documentationUrl": "",
+    "executor": "NEXTFLOW",
+    "id": "proseg-workflow",
+    "name": "Proseg",
+    "parentProcessIds": [
+        "xeniumranger-resegment-1-0",
+        "xenium",
+        "cosmx"
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "form": {
+        "properties": {
+            "enforce_connectivity": {
+                "default": true,
+                "description": "Prevents cells from having disconnected voxels",
+                "title": "Enforce Connectivity",
+                "type": "boolean",
+                "value": false
+            },
+            "platform": {
+                "default": "",
+                "description": "Name of spatial transcriptomics platform",
+                "title": "Platform",
+                "type": "string"
+            },
+            "transcriptsFile": {
+                "default": "",
+                "description": "File with transcript info (gene ID, coordinates etc)",
+                "file": "**/*",
+                "pathType": "dataset",
+                "title": "Transcripts File",
+                "type": "string"
+            }
+        }
+    },
+    "ui": {}
+}
