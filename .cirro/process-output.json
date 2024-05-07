@@ -1,21 +1,6 @@
 {
     "commands": [
         {
-            "command": "hot.Parquet",
-            "params": {
-                "cols": [],
-                "desc": "",
-                "name": "",
-                "read_csv": {
-                    "parse": {
-                        "delimiter": ","
-                    }
-                },
-                "source": "$data_directory/",
-                "target": ".parquet"
-            }
-        },
-        {
             "command": "hot.Manifest",
             "params": {}
         }

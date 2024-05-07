@@ -9,10 +9,11 @@
                 "value": false
             },
             "platform": {
-                "default": "",
+                "default": "xenium",
                 "description": "Name of spatial transcriptomics platform",
                 "title": "Platform",
-                "type": "string"
+                "type": "string",
+                "enum": ["xenium", "cosmx", "merfish"]
             },
             "transcriptsFile": {
                 "default": "",
