@@ -23,3 +23,5 @@ To run the pipeline with docker:
 nextflow run main -with-docker [docker env name]
 ```
 
+## Execution
+This workflow can be run on [Cirro](https://cirro.bio/)
