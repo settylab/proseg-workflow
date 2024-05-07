@@ -8,7 +8,7 @@ Key parameters include:
 * `platform` - `xenium`, `cosmx`, or `merfish`
 * `outputDir` - where to store the output files
 * `inputDir` - directory with the input file(s)
-* `transcriptsFile` - filename in `inputDir` with transcript info
+* `transcriptsFile` - filename in `inputDir` with transcript info. For Xenium this is `transcripts.csv.gz`
 * `enforce_connectivity` - prevent cells from having disconnected voxels
 
 
