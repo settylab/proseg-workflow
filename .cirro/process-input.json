@@ -1,0 +1,7 @@
+{
+    "enforce_connectivity": "$.params.dataset.paramJson.enforce_connectivity",
+    "inputDir": "$.params.inputs[0].s3|/data/",
+    "outputDir": "$.params.dataset.s3|/data/",
+    "platform": "$.params.dataset.paramJson.platform",
+    "transcriptsFile": "$.params.dataset.paramJson.transcriptsFile"
+}
