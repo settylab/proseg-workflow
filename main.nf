@@ -1,7 +1,8 @@
 /* See nextflow.config for param declarations */
 
-params.platform = params.platform.toLowerCase()
-if (!(params.platform in ['xenium', 'cosmx', 'merfish'])) {
+platform = params.platform.toLowerCase()
+print platform
+if (!(platform in ['xenium', 'cosmx', 'merfish'])) {
     error "${params.platform} is an invalid platform type. Please specify xenium, cosmx, or merfish"
 }
 
@@ -15,7 +16,7 @@ process PROSEG {
     publishDir "${params.outputDir}"
 
     input:
-    path "${params.inputDir}/${params.transcriptsFile}"
+    path transcripts
 
 
     output:
@@ -30,7 +31,7 @@ process PROSEG {
 
     script:
     """
-    proseg --${params.platform} ${params.transcriptsFile} \
+    proseg --${platform} ${transcripts} \
         --output-expected-counts expected-counts.csv.gz \
         --output-cell-metadata cell-metadata.csv.gz \
         --output-transcript-metadata transcript-metadata.csv.gz \
@@ -45,7 +46,7 @@ process PROSEG {
 
 
 workflow {
-    transcripts = file("${params.inputDir}/${params.transcriptsFile}")
+    transcripts = file("${params.transcriptsFile}")
     PROSEG(transcripts)
 }
 
