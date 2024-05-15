@@ -8,17 +8,24 @@
                 "type": "boolean",
                 "value": false
             },
+            "ignore_z_coord": {
+                "default": false,
+                "description": "Run Proseg in 2D mode ignoring  z-coordinate of transcripts",
+                "title": "2D Mode",
+                "type": "boolean",
+                "value": false
+            },
             "platform": {
-                "default": "xenium",
+                "default": "Xenium",
                 "description": "Name of spatial transcriptomics platform",
                 "title": "Platform",
                 "type": "string",
-                "enum": ["xenium", "cosmx", "merfish"]
+                "enum": ["Xenium", "Cosmx", "Merscope"]
             },
             "transcriptsFile": {
                 "default": "",
                 "description": "File with transcript info (gene ID, coordinates etc)",
-                "file": "**/*",
+                "file": "**/*transcripts.csv.gz",
                 "pathType": "dataset",
                 "title": "Transcripts File",
                 "type": "string"

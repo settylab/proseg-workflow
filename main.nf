@@ -2,14 +2,21 @@
 
 platform = params.platform.toLowerCase()
 print platform
-if (!(platform in ['xenium', 'cosmx', 'merfish'])) {
-    error "${params.platform} is an invalid platform type. Please specify xenium, cosmx, or merfish"
+if (!(platform in ['xenium', 'cosmx', 'merscope'])) {
+    error "${params.platform} is an invalid platform type. Please specify xenium, cosmx, or merscope"
 }
 
 if (params.enforce_connectivity) {
     connectivity_flag = "--enforce-connectivity"
 } else {
     connectivity_flag = ""
+}
+
+if (!params.ignore_z_coord) {
+    flat2d_flag = "--ignore-z-coord"
+    println "Warning: Ignoring z-coordinate and running Proseg in 2D mode"
+} else {
+    flat2d_flag = ""
 }
 
 process PROSEG {
@@ -40,7 +47,7 @@ process PROSEG {
         --output-cell-polygons cell-polygons.geojson.gz \
         --output-cell-polygon-layers cell-polygons-layers.geojson.gz \
         --output-cell-hulls cell-hulls.geojson.gz \
-        ${connectivity_flag}
+        ${connectivity_flag} ${flat2d_flag}
     """
 }
 
