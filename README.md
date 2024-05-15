@@ -10,6 +10,7 @@ Key parameters include:
 * `inputDir` - directory with the input file(s)
 * `transcriptsFile` - filename in `inputDir` with transcript info. For Xenium this is `transcripts.csv.gz`
 * `enforce_connectivity` - prevent cells from having disconnected voxels
+* `ignore_z_coord` - run in 2D mode
 
 
 ## Install
