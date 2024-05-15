@@ -21,7 +21,7 @@ if (params.ignore_z_coord) {
 println "Settings:"
 println "platform: ${platform}"
 println "connectivity_flag: ${connectivity_flag}"
-println "ignore_z_coord: ${flat2d_flag}"
+println "flat2d_flag: ${flat2d_flag}"
 println "transcriptsFile: ${params.transcriptsFile}"
 println "outputDir: ${params.outputDir}"
 
