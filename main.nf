@@ -1,7 +1,6 @@
 /* See nextflow.config for param declarations */
 
 platform = params.platform.toLowerCase()
-print platform
 if (!(platform in ['xenium', 'cosmx', 'merscope'])) {
     error "${params.platform} is an invalid platform type. Please specify xenium, cosmx, or merscope"
 }
@@ -12,12 +11,19 @@ if (params.enforce_connectivity) {
     connectivity_flag = ""
 }
 
-if (!params.ignore_z_coord) {
+if (params.ignore_z_coord) {
     flat2d_flag = "--ignore-z-coord"
     println "Warning: Ignoring z-coordinate and running Proseg in 2D mode"
 } else {
     flat2d_flag = ""
 }
+
+println "Settings:"
+println "platform: ${platform}"
+println "connectivity_flag: ${connectivity_flag}"
+println "ignore_z_coord: ${flat2d_flag}"
+println "transcriptsFile: ${params.transcriptsFile}"
+println "outputDir: ${params.outputDir}"
 
 process PROSEG {
     publishDir "${params.outputDir}"
