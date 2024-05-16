@@ -12,6 +12,9 @@ Key parameters include:
 * `enforce_connectivity` - prevent cells from having disconnected voxels
 * `ignore_z_coord` - run in 2D mode
 
+### CosMx
+Right now `proseg-workflow` only supports running Proseg on CosMx data with the `--cosmx` flag. If there is interest
+in supporting `--cosmx-micron` and FOV stitching, please create an issue. 
 
 ## Install
 Make sure [Nextflow](https://github.com/nextflow-io/nextflow) and [Proseg](https://github.com/dcjones/proseg) are installed.
@@ -26,3 +29,5 @@ nextflow run main.nf -with-docker [docker env name]
 
 ## Execution
 This workflow can be run on [Cirro](https://cirro.bio/)
+
+On Cirro the workflow is launched with 16 CPUs and 64GB of memory on AWS
