@@ -6,7 +6,7 @@
                 "description": "Prevents cells from having disconnected voxels",
                 "title": "Enforce Connectivity",
                 "type": "boolean",
-                "value": false
+                "value": true
             },
             "ignore_z_coord": {
                 "default": false,
