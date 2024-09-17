@@ -8,7 +8,7 @@ Key parameters include:
 * `platform` - `xenium`, `cosmx`, or `merfish`
 * `outputDir` - where to store the output files
 * `inputDir` - directory with the input file(s)
-* `transcriptsFile` - filename in `inputDir` with transcript info. For Xenium this is `transcripts.csv.gz`
+* `transcriptsFile` - filename in `inputDir` with transcript info. For Xenium this is `transcripts.parquet`
 * `enforce_connectivity` - prevent cells from having disconnected voxels
 * `ignore_z_coord` - run in 2D mode
 
@@ -30,4 +30,4 @@ nextflow run main.nf -with-docker [docker env name]
 ## Execution
 This workflow can be run on [Cirro](https://cirro.bio/)
 
-On Cirro the workflow is launched with 16 CPUs and 64GB of memory on AWS
+On Cirro the workflow is launched with 16 CPUs and 64GB of memory on AWS. If the initial run crashes, nextflow will try to relaunch 3 times with increasing levels of memory (64GB, 128GB, 192GB).
