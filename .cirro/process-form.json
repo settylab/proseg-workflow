@@ -25,7 +25,7 @@
             "transcriptsFile": {
                 "default": "",
                 "description": "File with transcript info (gene ID, coordinates etc)",
-                "file": "**/*transcripts.csv.gz",
+                "file": "**/*transcripts.parquet",
                 "pathType": "dataset",
                 "title": "Transcripts File",
                 "type": "string"
