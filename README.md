@@ -1,5 +1,6 @@
 # proseg-workflow
-Basic nextflow pipeline to run [Proseg](https://github.com/dcjones/proseg) on a single sample
+Basic nextflow pipeline to run [Proseg](https://github.com/dcjones/proseg) on a single sample.
+After Proseg segmentation, the output is converted into Xenium Explorer compatible format
 
 ## Configuration
 Pipeline parameters can be specified in `nextflow.config`
@@ -11,6 +12,7 @@ Key parameters include:
 * `transcriptsFile` - filename in `inputDir` with transcript info. For Xenium this is `transcripts.parquet`
 * `enforce_connectivity` - prevent cells from having disconnected voxels
 * `ignore_z_coord` - run in 2D mode
+* `sampleID` - name of the sample for Xenium Ranger output
 
 ### CosMx
 Right now `proseg-workflow` only supports running Proseg on CosMx data with the `--cosmx` flag. If there is interest
