@@ -24,9 +24,11 @@ println "connectivity_flag: ${connectivity_flag}"
 println "flat2d_flag: ${flat2d_flag}"
 println "transcriptsFile: ${params.transcriptsFile}"
 println "outputDir: ${params.outputDir}"
+println "sampleID: ${params.sampleID}"
 
 process PROSEG {
-    publishDir "${params.outputDir}"
+    publishDir "${params.outputDir}/proseg"
+    container "tbencomo/proseg:latest"
 
     input:
     path transcripts
@@ -57,10 +59,67 @@ process PROSEG {
     """
 }
 
+process PROSEG2BAYSOR {
+    publishDir "${params.outputDir}/proseg2baysor"
+    container "tbencomo/proseg:latest"
+
+    input:
+    path transcript_metadata
+    path cell_polygons
+
+    output:
+    path 'baysor-transcript-metadata.csv', emit: baysor_metadata
+    path 'baysor-cell-polygons.geojson', emit: baysor_polygons
+
+    script:
+    """
+    proseg-to-baysor  \
+        ${transcript_metadata} \
+        ${cell_polygons} \
+        --output-transcript-metadata baysor-transcript-metadata.csv \
+        --output-cell-polygons baysor-cell-polygons.geojson
+    """
+}
+
+process XR_IMPORTSEG {
+    publishDir "${params.outputDir}/xeniumranger"
+    container "769915755291.dkr.ecr.us-west-2.amazonaws.com/xeniumranger:3.0.1"
+
+    input:
+    path baysor_metadata
+    path baysor_polygons
+    path xa_directory
+    val sampleID
+
+    output:
+    path "${sampleID}"
+
+    script:
+    """
+    xeniumranger import-segmentation \
+        --id ${sampleID} \
+        --xenium-bundle ${xa_directory} \
+        --viz-polygons ${baysor_polygons} \
+        --transcript-assignment ${baysor_metadata} \
+        --units microns
+    """
+}
 
 workflow {
     transcripts = file("${params.transcriptsFile}")
-    PROSEG(transcripts)
+    proseg_result = PROSEG(transcripts)
+
+    proseg2baysor_result = PROSEG2BAYSOR(
+        proseg_result.transcript_metadata,
+        proseg_result.cell_polygons_2d
+    )
+
+    XR_IMPORTSEG(
+        proseg2baysor_result.baysor_metadata,
+        proseg2baysor_result.baysor_polygons,
+        transcripts.parent,
+        params.sampleID
+    )
 }
 
 
