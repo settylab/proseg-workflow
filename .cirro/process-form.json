@@ -18,9 +18,19 @@
             "platform": {
                 "default": "Xenium",
                 "description": "Name of spatial transcriptomics platform",
+                "enum": [
+                    "Xenium",
+                    "Cosmx",
+                    "Merscope"
+                ],
                 "title": "Platform",
-                "type": "string",
-                "enum": ["Xenium", "Cosmx", "Merscope"]
+                "type": "string"
+            },
+            "sampleID": {
+                "default": "",
+                "description": "Name of sample for output",
+                "title": "sampleID",
+                "type": "string"
             },
             "transcriptsFile": {
                 "default": "",

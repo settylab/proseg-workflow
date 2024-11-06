@@ -1,8 +1,9 @@
 {
     "enforce_connectivity": "$.params.dataset.paramJson.enforce_connectivity",
+    "ignore_z_coord": "$.params.dataset.paramJson.ignore_z_coord",
     "inputDir": "$.params.inputs[0].s3|/data/",
     "outputDir": "$.params.dataset.s3|/data/",
     "platform": "$.params.dataset.paramJson.platform",
-    "transcriptsFile": "$.params.dataset.paramJson.transcriptsFile",
-    "ignore_z_coord": "$.params.dataset.paramJson.ignore_z_coord"
+    "sampleID": "$.params.dataset.paramJson.sampleID",
+    "transcriptsFile": "$.params.dataset.paramJson.transcriptsFile"
 }
