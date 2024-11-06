@@ -2,6 +2,9 @@
 Basic nextflow pipeline to run [Proseg](https://github.com/dcjones/proseg) on a single sample.
 After Proseg segmentation, the output is converted into Xenium Explorer compatible format
 
+**NOTE:** This pipeline currently uses `proseg` v1 which is not suitable for highly multiplex datasets (i.e. Xenium Prime 5k panel).
+See [this](https://hub.docker.com/repository/docker/tbencomo/proseg2/general) docker container for `proseg` v2 which is designed for highly multiplex data.
+
 ## Configuration
 Pipeline parameters can be specified in `nextflow.config`
 
