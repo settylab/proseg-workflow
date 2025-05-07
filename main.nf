@@ -46,6 +46,8 @@ process PROSEG {
 
     script:
     """
+    echo "Proseg version:"
+    proseg --version
     proseg --${platform} ${transcripts} \
         --output-expected-counts expected-counts.csv.gz \
         --output-cell-metadata cell-metadata.csv.gz \
