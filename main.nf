@@ -28,7 +28,7 @@ println "sampleID: ${params.sampleID}"
 
 process PROSEG {
     publishDir "${params.outputDir}/proseg"
-    container "tbencomo/proseg2:latest"
+    container "ruijintracyyang/proseg:latest"
 
     input:
     path transcripts
