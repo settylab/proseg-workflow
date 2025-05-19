@@ -28,7 +28,7 @@ println "sampleID: ${params.sampleID}"
 
 process PROSEG {
     publishDir "${params.outputDir}/proseg"
-    container "ruijintracyyang/proseg:latest"
+    container "ruijintracyyang/proseg:v1.0"
 
     input:
     path transcripts
@@ -63,7 +63,7 @@ process PROSEG {
 
 process PROSEG2BAYSOR {
     publishDir "${params.outputDir}/proseg2baysor"
-    container "ruijintracyyang/proseg:latest"
+    container "ruijintracyyang/proseg:v1.0"
 
     input:
     path transcript_metadata
