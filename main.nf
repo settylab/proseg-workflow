@@ -63,7 +63,7 @@ process PROSEG {
 
 process PROSEG2BAYSOR {
     publishDir "${params.outputDir}/proseg2baysor"
-    container "ruijintracyyang/proseg:v1.0"
+    container "ghcr.io/dcjones/proseg:v2.0.5"
 
     input:
     path transcript_metadata
