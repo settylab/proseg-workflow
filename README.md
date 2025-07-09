@@ -3,7 +3,7 @@ Basic nextflow pipeline to run [Proseg](https://github.com/dcjones/proseg) on a 
 After Proseg segmentation, the output is converted into Xenium Explorer compatible format
 
 **NOTE** As of 5/14/2025, this pipeline uses Proseg v2.0 which is suited for targeted (~500 genes) and high plex (~5000 genes) panels.
-We use Proseg `v2.0.4` with [this](https://hub.docker.com/r/ruijintracyyang/proseg/tags) docker container
+We use Proseg `v2.0.4` with [this](ghcr.io/dcjones/proseg:v2.0.5) docker container
 
 ## Configuration
 Pipeline parameters can be specified in `nextflow.config`
