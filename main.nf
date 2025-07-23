@@ -85,7 +85,7 @@ process PROSEG2BAYSOR {
 
 process XR_IMPORTSEG {
     publishDir "${params.outputDir}/xeniumranger"
-    container "769915755291.dkr.ecr.us-west-2.amazonaws.com/xeniumranger:3.0.1"
+    container "quay.io/nf-core/xeniumranger:3.1.1"
 
     input:
     path baysor_metadata
