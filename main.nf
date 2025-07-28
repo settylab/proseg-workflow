@@ -28,7 +28,7 @@ println "sampleID: ${params.sampleID}"
 
 process PROSEG {
     publishDir "${params.outputDir}/proseg"
-    container "ghcr.io/dcjones/proseg:v2.0.5"
+    container "ghcr.io/dcjones/proseg:v2.0.6"
 
     input:
     path transcripts
