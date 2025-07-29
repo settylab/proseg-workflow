@@ -26,9 +26,12 @@ println "transcriptsFile: ${params.transcriptsFile}"
 println "outputDir: ${params.outputDir}"
 println "sampleID: ${params.sampleID}"
 
+def prosegImage = "ghcr.io/dcjones/proseg:v2.0.6"
+def xeniumrangerImage = "quay.io/nf-core/xeniumranger:3.1.1"
+
 process PROSEG {
     publishDir "${params.outputDir}/proseg"
-    container "ghcr.io/dcjones/proseg:v2.0.6"
+    container prosegImage
 
     input:
     path transcripts
@@ -63,7 +66,7 @@ process PROSEG {
 
 process PROSEG2BAYSOR {
     publishDir "${params.outputDir}/proseg2baysor"
-    container "ghcr.io/dcjones/proseg:v2.0.5"
+    container prosegImage
 
     input:
     path transcript_metadata
@@ -85,7 +88,7 @@ process PROSEG2BAYSOR {
 
 process XR_IMPORTSEG {
     publishDir "${params.outputDir}/xeniumranger"
-    container "quay.io/nf-core/xeniumranger:3.1.1"
+    container xeniumrangerImage
 
     input:
     path baysor_metadata
